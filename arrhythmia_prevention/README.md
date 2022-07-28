@@ -42,7 +42,7 @@
                 - 음성요인 컬럼은 결측치 대체한 데이터셋만 적용
                 - 점수 기준</br>
                     `기준에 해당할 경우 0점부터 컬럼에 기재되어있는 점수 누적합산`
-                <figure><img src="/arrhythmia_prevention/
+                <figure><img src="/arrhythmia_prevention/image
                 /score_criteria.png" width="500" height="600"></figure>
             - ‘최종점수’ 컬럼에 부여된 점수에 따라 ‘위험군' 컬럼에 정상 ~ 극위험군에 해당되는 정수 매핑
                 ```
