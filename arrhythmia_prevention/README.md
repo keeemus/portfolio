@@ -42,7 +42,8 @@
                 - 음성요인 컬럼은 결측치 대체한 데이터셋만 적용
                 - 점수 기준</br>
                     `기준에 해당할 경우 0점부터 컬럼에 기재되어있는 점수 누적합산`
-                <figure><img src="/image/score_criteria.png" width="500" height="600"></figure>
+                <figure><img src="/arrhythmia_prevention/
+                /score_criteria.png" width="500" height="600"></figure>
             - ‘최종점수’ 컬럼에 부여된 점수에 따라 ‘위험군' 컬럼에 정상 ~ 극위험군에 해당되는 정수 매핑
                 ```
                 정상 : 0점
@@ -62,16 +63,16 @@
             2. 전체 위험군 중 정상과 저위험군이 약 90%, 80%를 차지함
             
     - 각 위험군별 양성요인 평균치 확인
-    <figure><img src="/image/original/feature_mean.png" width="300" height="300">
-            <img src="/image/drop/feature_mean_drop.png" width="300" height="300"></figure>
+    <figure><img src="/arrhythmia_prevention/image/original/feature_mean.png" width="300" height="300">
+            <img src="/arrhythmia_prevention/image/drop/feature_mean_drop.png" width="300" height="300"></figure>
     
     - 각 위험군별 허리신장비율 확인
-    <figure><img src="/image/original/waist_to_height_ratio.png" width="300" height="300">
-            <img src="/image/drop/waist_to_height_ratio_drop.png" width="300" height="300"></figure>
+    <figure><img src="/arrhythmia_prevention/image/original/waist_to_height_ratio.png" width="300" height="300">
+            <img src="/arrhythmia_prevention/image/drop/waist_to_height_ratio_drop.png" width="300" height="300"></figure>
     
     - 각 위험군별 연령대 평균치 확인
-    <figure><img src="/image/original/age.png" width="300" height="300">
-            <img src="/image/drop/age_drop.png" width="300" height="300"></figure>
+    <figure><img src="/arrhythmia_prevention/image/original/age.png" width="300" height="300">
+            <img src="/arrhythmia_prevention/image/drop/age_drop.png" width="300" height="300"></figure>
                 
                 1. 고위험군에 속할수록 양성요인과 허리신장비율이 증가함
                 2. 중등도 이상의 비율이 약 10%, 20%인 것과 평균 연령대가 59.6세이고 고위험군에 속할수록 연령대가 높아지는 것을 감안했을 때
@@ -88,7 +89,7 @@
     - 타겟 데이터가 불균형하므로 정확한 분류를 위해 평가지표로 조화평균(macro avg f1-score)을 채택하여 성능평가 진행
     - 모델링 결과
         - 결측치 제거 모델
-            <figure><img src="/image/drop/model_score_drop.png" width="900" height="300"></figure>
+            <figure><img src="/arrhythmia_prevention/image/drop/model_score_drop.png" width="900" height="300"></figure>
             
             1. 모든 모델의 튜닝은 과적합을 개선하는 것에 초점을 두고 진행
             2. 랜덤포레스트 기본 모델이 좋은 성능을 기록했지만 과적합이 발생했고 튜닝을 진행하면서 모든 클래스에서 성능이 떨어짐
@@ -96,7 +97,7 @@
             4. 특히 튜닝 후 극위험군에 대한 성능이 LGBM 모델을 제외한 모든 모델에서 성능저하 발생, LGBM 모델은 성능이 향상됐지만 전체 성능 확보에 문제가 있음
             
         - 결측치 대체 모델
-            <figure><img src="/image/original/model_score.png" width="900" height="300"></figure>
+            <figure><img src="/arrhythmia_prevention/image/original/model_score.png" width="900" height="300"></figure>
             
             1. 데이터가 어느정도 확보된 상태라 고위험군, 극위험군의 분류성능이 결측치 제거 모델과 비슷하거나 좋은 성능을 보임
             2. 역시 랜덤포레스트 모델과 LGBM 모델에서 과적합 발생
@@ -105,8 +106,8 @@
 
     - 튜닝을 거쳐 모든 클래스에 안정적인 성능을 내는 모델인 XGBoost 결측치 대체 모델을 최종모델로 선택
     - XGBoost 최종모델 특성중요도 확인 
-            <figure><img src="/image/feature_importance.png" width="400" height="500"></figure>
-            <figure><img src="/image/permutation_importance.png" width="300" height="300"></figure>
+            <figure><img src="/arrhythmia_prevention/image/feature_importance.png" width="400" height="500"></figure>
+            <figure><img src="/arrhythmia_prevention/image/permutation_importance.png" width="300" height="300"></figure>
             
         1. 특성 중요도와 permutation importacne를 살펴봤을 때 허리신장비율, 식전혈당(공복혈당), 중성지방 세가지 특성이 위험군을 분류하는 데에 중요한 특성이 됨
         2. 실제 임상에서 간단한 예측을 할 때 허리신장비율 특성을 활발하게 활용하는 것을 생각하면 신뢰도가 있는 결과
