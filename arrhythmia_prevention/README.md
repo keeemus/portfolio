@@ -55,8 +55,8 @@
 3. EDA 및 결과
     - 데이터셋 2가지 따로 진행
     - 타겟 분포 확인
-    <figure><img src="/image/original/target_ratio.png" width="350" height="350">
-            <img src="/image/drop/target_ratio_drop.png" width="350" height="350"></figure>
+    <figure><img src="/arrhythmia_prevention/image/original/target_ratio.png" width="350" height="350">
+            <img src="/arrhythmia_prevention/image/drop/target_ratio_drop.png" width="350" height="350"></figure>
            
             1. 클래스별 타겟데이터가 불균형함
             2. 전체 위험군 중 정상과 저위험군이 약 90%, 80%를 차지함
